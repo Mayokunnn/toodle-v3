@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBH54FX8Eh4C26s91sPw7hRWCCLXgMk59Q",
@@ -11,5 +11,16 @@ const firebaseConfig = {
   measurementId: "G-R5BTJ6GK6F",
 };
 
+// initialize firebase app
 const app = initializeApp(firebaseConfig);
+
+// init service 
 const db = getFirestore(app);
+
+// collection ref
+const colRef = collection(db, 'tasks')
+
+// get collection data
+
+
+export {colRef}

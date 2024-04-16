@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+import {colRef} from '../services/firebase.ts'
+import { getDocs } from 'firebase/firestore';
+getDocs(colRef).then(snapshot => {
+  const tasks = snapshot.docs.map((doc) => {
+    return {...doc.data(), task_id: doc.id}
+  })
+  console.log(tasks);
+}).catch(err=> console.log(err.message) )
+
 </script>
 
 <template>
