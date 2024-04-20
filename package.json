@@ -9,8 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vuepic/vue-datepicker": "^8.4.0",
     "firebase": "^10.11.0",
-    "vue": "^3.4.21"
+    "oh-vue-icons": "^1.0.0-rc3",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

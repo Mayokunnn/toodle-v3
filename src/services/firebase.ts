@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore} from "firebase/firestore";
+import { browserLocalPersistence, getAuth, setPersistence } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBH54FX8Eh4C26s91sPw7hRWCCLXgMk59Q",
@@ -11,16 +12,19 @@ const firebaseConfig = {
   measurementId: "G-R5BTJ6GK6F",
 };
 
-// initialize firebase app
 const app = initializeApp(firebaseConfig);
 
 // init service 
 const db = getFirestore(app);
+const auth = getAuth()
 
-// collection ref
-const colRef = collection(db, 'tasks')
+// Set the persistence to local
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    // Local persistence successfully set
+  })
+  .catch((error) => {
+    // Handle errors here
+  });
 
-// get collection data
-
-
-export {colRef}
+export { auth,db}

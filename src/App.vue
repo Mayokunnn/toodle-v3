@@ -1,34 +1,32 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import {colRef} from '../services/firebase.ts'
-import { getDocs } from 'firebase/firestore';
-getDocs(colRef).then(snapshot => {
-  const tasks = snapshot.docs.map((doc) => {
-    return {...doc.data(), task_id: doc.id}
-  })
-  console.log(tasks);
-}).catch(err=> console.log(err.message) )
-
+import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-    <HelloWorld msg="Hey Mayokun"/>
-  </h1>
+  <div class="h-screen grid grid-rows-[5rem_1fr]">
+    <div
+      class="flex items-center text-lightDarkGrayishBlue gap-5 justify-end bg-lightVeryGrayishBlue border-b border-lightDarkGrayishBlue p-2 laptop:p-[1.5rem_4.8rem]"
+    >
+      <icon
+        name="fa-regular-moon"
+        fill="hsl(236, 9%, 61%)"
+        hover="true"
+        animation="pulse"
+        scale="1.5 "
+      />
+      <div class="flex gap-4 items-center">
+        <img
+          class="rounded-full h-10 w-10 contain cursor-pointer"
+          src="https://picsum.photos/200"
+          alt="avatar"
+        />
+        <h2 class="text-lg">Olojo Feranmi</h2>
+      </div>
+    </div>
+    <main class="h-full p-5 bg-white">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<style scoped></style>
